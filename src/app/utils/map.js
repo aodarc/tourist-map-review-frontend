@@ -15,12 +15,8 @@
           var marker, i;
            for (i = 0; i < locations.length; i++){
                 var title = locations[i].title;
-                var img = locations[i].pictures ? locations[i].pictures.sizes[0].link : "";
-                var zipcode = locations[i].zipcode;
-                var address =  locations[i].address;
-                var city =  locations[i].city;
-                var state =  locations[i].state;
-                var price =  locations[i].price;
+                var img = locations[i].pictures;
+
                 var latlngset = new google.maps.LatLng(locations[i].location[0], locations[i].location[1]);
 
                 var markerOptions = {
@@ -33,9 +29,9 @@
                 marker = new google.maps.Marker(markerOptions);
                 map.setCenter(marker.getPosition());
 
-                var windowContent = '<div class="marker-info media">' +
+                var windowContent = '<div class="marker-info media" style="width: 300px">' +
                                    '<a class="pull-left" href="#/video_page"><img width="64px" height="64px" class="media-object" src="'+ img + '"></a>' +
-                                   '<div class="media-body"><h4 class="media-heading">'+ zipcode +' ' + address + '</h4><p>'+ city +' '+ state + '</p><h5 class="media-heading">$ ' + price +'</h5></div>'+
+                                   '<div class="media-body"><h4 class="media-heading">'+locations[i].title+'</h4><p>ll</p><h5 class="media-heading">jj</h5></div>'+
                                 '</div>';
 
 
@@ -58,14 +54,28 @@
         }
         var mapOptions = {
           center: new google.maps.LatLng(lat, lon),
-          zoom: 12,
+          zoom: 14,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           scrollwheel: scrollwheel
         };
         var map = new google.maps.Map(document.getElementById(divId),
         mapOptions);
 
-        //setMarkers(map,locations)
+        var locations = [{
+          title:'title1',
+          pictures: 'assets/images/map.png',
+          location: [49.836162, 24.011409]
+        },
+        {
+          title:'title3',
+          pictures: 'assets/images/map.png',
+          location: [49.835580, 24.014092]
+        },{
+          title:'title3',
+          pictures: 'assets/images/map.png',
+          location: [49.835415, 24.006442]
+        }];
+        setMarkers(map,locations)
       }
 
       return{

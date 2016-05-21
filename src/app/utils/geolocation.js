@@ -16,8 +16,7 @@
                     return { lat: data.coords.latitude, lon: data.coords.longitude };
                 })
                 .then(function(res) {
-                    Map.mapInitialize(res.lat, res.lon, divMapId, false);
-
+                  Map.mapInitialize(res.lat, res.lon, divMapId);
                 })
         }
         return useLocationInitializeMap
