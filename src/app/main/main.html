@@ -1,0 +1,27 @@
+<div id="main">
+    <div class="container-fluid padding-zero">
+        <div><acme-navbar></acme-navbar></div>
+        <main>
+            <!--Slider-->
+            <section>
+                <div>
+                    <uib-carousel active="active" interval="main.myInterval" no-wrap="main.noWrapSlides">
+                      <uib-slide ng-repeat="slide in main.slides track by $index" index="slide.id">
+                        <img class="img-responsive" ng-src="{{slide}}" style="margin:auto;">
+                      </uib-slide>
+                    </uib-carousel>
+                </div>
+            </section>
+            <section>
+                <div class="container-fluid">
+                <h2 class="text-center">Туристичні об'єкти поблизу тебе</h2>
+                </div>
+            </section>
+            <!--Map-->
+            <section>
+                <div id="home-map"></div>
+            </section>
+        </main>
+        <div><acme-footer></acme-footer></div>
+    </div>
+</div>
