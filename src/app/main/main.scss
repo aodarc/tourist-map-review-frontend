@@ -1,0 +1,8 @@
+#main{
+  $bg_color: rgb(234, 240, 242);
+  background-color: $bg_color;
+  .padding-zero{
+    padding: 0;
+  }
+  #home-map { height: 450px; }
+}

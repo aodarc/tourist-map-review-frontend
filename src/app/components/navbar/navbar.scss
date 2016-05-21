@@ -1,0 +1,25 @@
+#navbar{
+  $color: #292c2f;
+  $color_active: #34383b;
+  $text_color: #bec4c7;
+
+  .navbar{
+    margin-bottom: 0;
+  }
+  .navbar-default{
+    background-color: $color;
+  }
+  .active > a{
+    background-color: $color_active;
+  }
+
+  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+    color: $text_color;
+  }
+  .navbar-default .navbar-nav > li > a{
+      color: $text_color;
+  }
+  .navbar-brand{
+      color: $text_color;
+  }
+}
