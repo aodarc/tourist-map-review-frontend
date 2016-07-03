@@ -3,7 +3,7 @@
  */
 (function() {
   'use strict';
-
+    // require('google');
 
     angular
     .module('touristMapReviewFrontend')

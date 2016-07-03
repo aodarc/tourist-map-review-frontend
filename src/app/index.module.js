@@ -14,7 +14,8 @@
       'ui.bootstrap',
       'toastr',
       //'uiGmapgoogle-maps'
-      'geolocation'
+      'geolocation',
+      'satellizer'
     ]);
 
 })();

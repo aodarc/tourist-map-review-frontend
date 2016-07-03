@@ -4,7 +4,5 @@
 
   angular
     .module('touristMapReviewFrontend')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
-
+    .constant('API_ROOT_URL', 'http://192.168.1.13/api');
 })();

@@ -14,14 +14,18 @@
         creationDate: '='
       },
       controller: NavbarController,
-      controllerAs: 'vm',
+      controllerAs: 'navbar',
       bindToController: true
     };
 
     /** @ngInject */
-    function NavbarController() {
-      //var vm = this;
-
+    function NavbarController($auth) {
+      var vm = this;
+      
+      vm.authenticate = function(provider) {
+        $auth.authenticate(provider);
+      };
+      
     }
   }
 
