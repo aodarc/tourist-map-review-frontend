@@ -19,13 +19,21 @@
     };
 
     /** @ngInject */
-    function NavbarController($auth) {
+    function NavbarController($auth, $log) {
       var vm = this;
-      
+
       vm.authenticate = function(provider) {
-        $auth.authenticate(provider);
+        $auth.authenticate(provider)
+          .then(function(response) {
+            $log.log($auth.isAuthenticated())
+          })
+          .catch(function(response) {
+          // Something went wrong.
+          });
+
       };
-      
+
+
     }
   }
 

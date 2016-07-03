@@ -19,7 +19,8 @@
 
     // Facebook API config
     $authProvider.facebook({
-      clientId: '1879375482290028'
+      clientId: '1879375482290028',
+      responseType: 'token'
     });
 
 
@@ -36,7 +37,7 @@
     $authProvider.authToken = 'Bearer';
     $authProvider.storageType = 'localStorage';
 
-    // Facebook
+
     $authProvider.facebook({
       name: 'facebook',
       url: '/auth/facebook',
