@@ -1,40 +1,62 @@
-<nav id="navbar">
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Tourist GuideMap</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<nav>
+  <div id="search">
+    <form class="search-form">
+      <input type="search" value="" placeholder="Search..." class="search-input">
+      <button type="submit" class="search-button">
+        <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <!--Dropdown-->
-                    <li class="dropdown" uib-dropdown>
-                        <a href="#" uib-dropdown-toggle class="dropdown-toggle">Увійти <b class="caret"></b></a>
-                        <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li><!--/Dropdown-->
-
-                    <li class="active"><button ng-click="navbar.authenticate('facebook')">Facabook</button></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
+  <div id="filters">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">
+        Filters
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">filter1</a></li>
+        <li><a href="#">filter2</a></li>
+        <li><a href="#">filter3</a></li>
+        <li><a href="#">filter4</a></li>
+        <li><a href="#">filter5</a></li>
+      </ul>
     </div>
+  </div>
+  <!-- login -->
+  <div id="login">
+    <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="sign-in">
+                  <h3>sign-in</h3>
+                  <input type="text" name="user" placeholder="Email address">
+                  <input type="password" name="pass" placeholder="Password">
+                  <input type="submit" name="login" class="login loginmodal-submit" value="sign-in">
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="col-md-6">
+                <div class="sign-up">
+                  <h3>sign-up</h3>
+                  <input type="text" name="user" placeholder="First name">
+                  <input type="text" name="user" placeholder="Last name">
+                  <input type="text" name="user" placeholder="Email address">
+                  <input type="password" name="pass" placeholder="Password">
+                  <input type="submit" name="login" class="login-sign-up loginmodal-submit" value="sign-up">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- login -->
 </nav>

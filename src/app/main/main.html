@@ -1,27 +1,55 @@
-<div id="main">
-    <div class="container-fluid padding-zero">
-        <div><acme-navbar></acme-navbar></div>
-        <main>
-            <!--Slider-->
-            <section>
-                <div>
-                    <uib-carousel active="active" interval="main.myInterval" no-wrap="main.noWrapSlides">
-                      <uib-slide ng-repeat="slide in main.slides track by $index" index="slide.id">
-                        <img class="img-responsive" ng-src="{{slide}}" style="margin:auto;">
-                      </uib-slide>
-                    </uib-carousel>
-                </div>
-            </section>
-            <section>
-                <div class="container-fluid">
-                <h2 class="text-center">Туристичні об'єкти поблизу тебе</h2>
-                </div>
-            </section>
-            <!--Map-->
-            <section>
-                <div id="home-map"></div>
-            </section>
-        </main>
-        <div><acme-footer></acme-footer></div>
+<div class="row">
+  <!-- col-md-4 -->
+  <div ng-class="{'col-md-5 i': main.single_post, 'col-md-4 i': !main.single_post}">
+    <!-- left-info -->
+    <div class="left-info">
+      <acme-navbar></acme-navbar>
+      <div id="content" ng-if="!main.single_post">
+        <h1>Interesting to visit</h1>
+        <div class="item">
+          <div class="item1 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item2 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item3 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item4 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item5 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item6 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item7 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+          <div class="item8 item-b">
+            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
+            <p>some text</p>
+          </div>
+        </div>
+      </div>
     </div>
+    <single-marker ng-if="main.single_post"></single-marker>
+    <!-- left-info -->
+  </div>
+  <!-- col-md-4 -->
+  <!-- col-md-8 -->
+  <div ng-class="{'col-md-7 a': main.single_post, 'col-md-8 a': !main.single_post}">
+    <div id="home-map"></div>
+  </div>
+  <!-- col-md-8 -->
+
 </div>

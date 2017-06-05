@@ -1,8 +1,241 @@
-#main{
-  $bg_color: rgb(234, 240, 242);
-  background-color: $bg_color;
-  .padding-zero{
-    padding: 0;
-  }
-  #home-map { height: 450px; }
+html, body, .row {
+  margin: 0;
+  padding: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.i {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.a {
+  overflow-y: hidden;
+}
+
+nav {
+  margin-bottom: 100px;
+}
+
+#search {
+  .search-form {
+    position: relative;
+    top: 30px;
+    left: 20px;
+    width: 44%;
+    height: 30px;
+    border-radius: 40px;
+    background: #fff;
+    border: 1px solid grey;
+  }
+  .search-input {
+    position: absolute;
+    top: 5px;
+    left: 38px;
+    font-size: 14px;
+    background: none;
+    color: #5a6674;
+    width: 195px;
+    height: 20px;
+    border: none;
+    outline: none;
+  }
+  .search-button {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none !important;
+    cursor: pointer;
+  }
+}
+
+#filters {
+  position: absolute;
+  font-size: 16px;
+  top: 30px;
+  right: 100px;
+  .btn {
+    background-color: #607fff;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 7px;
+  }
+  .btn:hover {
+    background-color: blue;
+  }
+  li {
+    padding-bottom: 10px;
+  }
+}
+
+#login {
+  a {
+    position: absolute;
+    font-size: 16px;
+    top: 30px;
+    right: 25px;
+    background-color: #349b2d;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 7px;
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: green;
+  }
+  .sign-in {
+    margin-left: -20px;
+    padding: 0 15px;
+  }
+  .sign-up {
+    margin-right: -20px;
+    padding: 0 15px;
+  }
+  .modal-dialog {
+    margin-top: 100px;
+  }
+  .loginmodal-container {
+    padding: 30px;
+    min-width: 680px;
+    width: 100%;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    overflow: hidden;
+    font-family: roboto;
+  }
+
+  .loginmodal-container h1 {
+    text-align: center;
+    font-size: 1.8em;
+    font-family: roboto;
+  }
+
+  .loginmodal-container input[type=submit] {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .loginmodal-container input[type=text], input[type=password] {
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    padding: 0 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+
+  .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+    border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .loginmodal {
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    height: 36px;
+    padding: 0 8px;
+  }
+
+  .loginmodal-submit {
+    border: 0px;
+    color: #fff;
+    padding-top: 20px;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #4d90fe;
+    padding: 17px 0px;
+    font-family: roboto;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .login-sign-up {
+    background-color: orange;
+  }
+  .loginmodal-submit:hover {
+    border: 0px;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    background-color: #357ae8;
+  }
+  .login-sign-up:hover {
+    background-color: #e88822;
+  }
+
+  .loginmodal-container a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+  }
+
+}
+
+.line {
+  height: 400px;
+  width: 2px;
+  background-color: grey;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  transform: rotate(7deg);
+}
+
+#content {
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 30px;;
+  }
+  .item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .item-b {
+      max-width: 150px;
+      margin: 20px 10px;
+    }
+    img {
+      height: 120px;
+      width: 150px;
+      margin-bottom: 20px;
+      transition: 0.5s all;
+    }
+    img:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+#home-map {
+  height: 100vh;
+  width: 100%;
+}
+
