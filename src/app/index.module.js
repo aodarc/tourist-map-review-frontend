@@ -15,7 +15,8 @@
       'toastr',
       //'uiGmapgoogle-maps'
       'geolocation',
-      'satellizer'
+      'satellizer',
+      'LocalStorageModule'
     ]);
 
 })();

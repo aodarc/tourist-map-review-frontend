@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,32 +6,41 @@
     .directive('singleMarker', singleMarker);
 
   /** @ngInject */
-  function singleMarker() {
+  function singleMarker(dataService) {
     return {
       restrict: 'E',
       templateUrl: 'app/components/single_item/single_marker.html',
       scope: {
-        creationDate: '='
+        details: '=',
+        comment: '='
       },
-      controller: NavbarController,
+      controller: SingleMarkerController,
       controllerAs: 'sm',
       bindToController: true
     };
 
     /** @ngInject */
-    function NavbarController($auth, $log) {
+    function SingleMarkerController($auth, Map, dummyData, dataService, $log, localStorageService) {
       var vm = this;
+      console.log(this.details);
+      vm.user_name = dataService.user_name;
+      vm.data = dummyData;
+      var map = window.map;
+      Map.setMarkers(map, [dummyData.marker]);
 
-      vm.authenticate = function(provider) {
+      vm.sentComment = function (comment) {
+        $log.log(vm);
+        vm.data.marker.comments.push({user: 'Alex', text: comment});
+      };
+
+      vm.authenticate = function (provider) {
         $auth.authenticate(provider)
-          .then(function(response) {
+          .then(function (response) {
             $log.log($auth.isAuthenticated())
           })
-          .catch(function(response) {
-          // Something went wrong.
+          .catch(function (response) {
+            // Something went wrong.
           });
-        alert('this');
-        console.log('yyy')
       };
 
 

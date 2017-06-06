@@ -12,21 +12,30 @@
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="true">
-        Filters
+        Фільтри
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#">filter1</a></li>
-        <li><a href="#">filter2</a></li>
-        <li><a href="#">filter3</a></li>
-        <li><a href="#">filter4</a></li>
-        <li><a href="#">filter5</a></li>
+        <li><a href="#">Харчування</a></li>
+        <li><a href="#">Цікавинки</a></li>
+        <li><a href="#">Фонтани</a></li>
+        <li><a href="#">Пам'ятники</a></li>
+      </ul>
+    </div>
+    <div class="dropdown" ng-if="navbar.user_name" style="top: -31px; right: -110px">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">
+        {{navbar.user_name}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><a ng-click="navbar.logOut()" href="#">Logout</a></li>
       </ul>
     </div>
   </div>
   <!-- login -->
   <div id="login">
-    <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+    <a href="#" data-toggle="modal" data-target="#login-modal" ng-if="!navbar.user_name">Login</a>
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true" style="display: none;">
       <div class="modal-dialog">
@@ -38,7 +47,7 @@
                   <h3>sign-in</h3>
                   <input type="text" name="user" placeholder="Email address">
                   <input type="password" name="pass" placeholder="Password">
-                  <input type="submit" name="login" class="login loginmodal-submit" value="sign-in">
+                  <input type="submit" data-dismiss="modal" name="login" ng-click="navbar.LogIn()" class="login loginmodal-submit" value="sign-in">
                 </div>
               </div>
               <div class="line"></div>
@@ -49,7 +58,7 @@
                   <input type="text" name="user" placeholder="Last name">
                   <input type="text" name="user" placeholder="Email address">
                   <input type="password" name="pass" placeholder="Password">
-                  <input type="submit" name="login" class="login-sign-up loginmodal-submit" value="sign-up">
+                  <input type="submit" data-dismiss="modal" data-toggle="close" name="login" class="login-sign-up loginmodal-submit" value="sign-up">
                 </div>
               </div>
             </div>

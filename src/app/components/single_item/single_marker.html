@@ -1,12 +1,10 @@
 <div id="content2">
   <div class="main-img">
-    <img src="https://dummyimage.com/400x300/a391a3/fff" alt="">
+    <img ng-src="{{sm.data.marker.img}}" alt="">
   </div>
   <div class="info">
-    <h3>Lviv, Trakt Glunanskyi</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non earum adipisci repudiandae nostrum dolorem
-      recusandae odit repellendus deleniti est voluptate voluptates consequatur sit unde dignissimos, fugit distinctio
-      minima voluptatum nesciunt.</p>
+    <h3>{{sm.data.marker.title}}</h3>
+    <p>{{sm.data.marker.description}}</p>
   </div>
   <div class="interesting">
     <div class="row">
@@ -25,10 +23,10 @@
     </div>
   </div>
   <div class="reviews">
-    <h2>SOME TEXT</h2>
+    <h2>Коментарі</h2>
     <div class="vidguk">
-      <div class="vidguk1">
-        <div class="user">Adolf</div>
+      <div class="vidguk1" ng-repeat="item in sm.data.marker.comments">
+        <div class="user">{{item.user}}</div>
         <div class="like">
           <div class="part">
             <div class="stars rate" data-percent="50">
@@ -40,49 +38,13 @@
             </div>
           </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas iure temporibus blanditiis, cumque tempora
-          saepe reprehenderit natus officiis veritatis architecto vitae doloremque vel, nam quisquam quos commodi
-          dolorum sunt mollitia?</p>
-      </div>
-      <div class="vidguk2">
-        <div class="user">Roman</div>
-        <div class="like">
-          <div class="part">
-            <div class="stars rate" data-percent="50">
-              <a href="?1" title="awful">★</a>
-              <a href="?2" title="ok">★</a>
-              <a href="?3" title="good">★</a>
-              <a href="?4" title="great">★</a>
-              <a href="?5" title="awesome">★</a>
-            </div>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas iure temporibus blanditiis, cumque tempora
-          saepe reprehenderit natus officiis veritatis architecto vitae doloremque vel, nam quisquam quos commodi
-          dolorum sunt mollitia?</p>
-      </div>
-      <div class="vidguk2">
-        <div class="user">User</div>
-        <div class="like">
-          <div class="part">
-            <div class="stars rate" data-percent="50">
-              <a href="?1" title="awful">★</a>
-              <a href="?2" title="ok">★</a>
-              <a href="?3" title="good">★</a>
-              <a href="?4" title="great">★</a>
-              <a href="?5" title="awesome">★</a>
-            </div>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas iure temporibus blanditiis, cumque tempora
-          saepe reprehenderit natus officiis veritatis architecto vitae doloremque vel, nam quisquam quos commodi
-          dolorum sunt mollitia?</p>
+        <p>{{item.text}}</p>
       </div>
     </div>
   </div>
 </div>
-<section id="comments">
-  <div class="name-user">Adolf</div>
+<section id="comments" ng-if="!sm.user_name">
+  <div class="name-user">{{sm.user_name}}Alex</div>
   <div class="part">
     <div class="stars rate" data-percent="50">
       <a href="?1" title="awful">★</a>
@@ -93,12 +55,9 @@
     </div>
   </div>
   <form id="comment-form">
-										<textarea minlength="4" class="form-control" name="comment" placeholder="коментар"
-                              rows="6"></textarea>
-    <button type="submit" class="btn">Відправити</button>
+    <textarea ng-model="comment" minlength="4" class="form-control" name="comment" placeholder="коментар" rows="6">
+    </textarea>
+    <button type="submit" ng-click="sm.sentComment(comment)" class="btn">Відправити</button>
   </form>
 
 </section>
-</div>
-<!-- left-info -->
-</div>

@@ -5,7 +5,7 @@
     <div class="left-info">
       <acme-navbar></acme-navbar>
       <div id="content" ng-if="!main.single_post">
-        <h1>Interesting to visit</h1>
+        <h1>Цікаво відвідати</h1>
         <div class="item">
           <div class="item1 item-b">
             <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <single-marker ng-if="main.single_post"></single-marker>
+    <single-marker details="main.details" ng-if="main.single_post"></single-marker>
     <!-- left-info -->
   </div>
   <!-- col-md-4 -->

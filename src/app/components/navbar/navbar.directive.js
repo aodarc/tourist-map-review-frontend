@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,7 +6,7 @@
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function acmeNavbar(dataService) {
     return {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
@@ -15,24 +15,37 @@
       },
       controller: NavbarController,
       controllerAs: 'navbar',
-      bindToController: true
+      bindToController: true,
+      link: function (scope, elem, attr) {
+        scope.data = dataService;
+      }
     };
 
     /** @ngInject */
-    function NavbarController($auth, $log) {
+    function NavbarController($auth, dataService, $log, localStorageService) {
       var vm = this;
 
-      vm.authenticate = function(provider) {
+      vm.authenticate = function (provider) {
         $auth.authenticate(provider)
-          .then(function(response) {
+          .then(function (response) {
             $log.log($auth.isAuthenticated())
           })
-          .catch(function(response) {
-          // Something went wrong.
+          .catch(function (response) {
+            // Something went wrong.
           });
-
       };
-
+      vm.LogIn = function () {
+        localStorageService.set('user_name', 'Alex');
+        vm.is_login = true;
+        vm.user_name = 'Alex';
+        dataService.user_name = vm.user_name;
+      };
+      vm.logOut = function () {
+        localStorageService.remove('user_name');
+        vm.is_login = false;
+        vm.user_name = false;
+        dataService.user_name = vm.user_name;
+      }
 
     }
   }
