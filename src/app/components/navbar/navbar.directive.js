@@ -11,20 +11,19 @@
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-        creationDate: '='
+        creationDate: '=',
+        srch: '=',
+        data: '='
       },
       controller: NavbarController,
       controllerAs: 'navbar',
-      bindToController: true,
-      link: function (scope, elem, attr) {
-        scope.data = dataService;
-      }
+      bindToController: true
     };
 
     /** @ngInject */
-    function NavbarController($auth, dataService, $log, localStorageService) {
+    function NavbarController($auth, $scope, dataService, $log, localStorageService) {
       var vm = this;
-
+      $log.log(vm.data, $scope);
       vm.authenticate = function (provider) {
         $auth.authenticate(provider)
           .then(function (response) {
@@ -39,12 +38,15 @@
         vm.is_login = true;
         vm.user_name = 'Alex';
         dataService.user_name = vm.user_name;
+        window.user_name = vm.user_name
       };
       vm.logOut = function () {
         localStorageService.remove('user_name');
         vm.is_login = false;
         vm.user_name = false;
         dataService.user_name = vm.user_name;
+        window.user_name = vm.user_name
+
       }
 
     }

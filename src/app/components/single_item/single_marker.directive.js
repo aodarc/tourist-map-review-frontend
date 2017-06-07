@@ -23,7 +23,8 @@
     function SingleMarkerController($auth, Map, dummyData, dataService, $log, localStorageService) {
       var vm = this;
       console.log(this.details);
-      vm.user_name = dataService.user_name;
+      vm.user_name = window.user_name;
+
       vm.data = dummyData;
       var map = window.map;
       Map.setMarkers(map, [dummyData.marker]);

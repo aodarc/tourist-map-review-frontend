@@ -6,12 +6,16 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(Map, userLocation, $http, $log) {
+  function MainController(Map, dummyData, userLocation, $http, dataService, $log, localStorageService) {
     var vm = this;
     // Dummy data
-    vm.single_post = true;
+    vm.single_post = false;
     vm.details = {name: 'tract'};
-    vm.comment = 'asd';
+    vm.search = 'string';
+
+    vm.toSinglePost = function () {
+      vm.single_post = true;
+    };
 
     //Google Map
     var map = Map.mapInitialize('home-map');
@@ -20,7 +24,7 @@
       map.setCenter(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
       map.setZoom(15)
     });
-
+    vm.data = dummyData;
     if (!vm.single_post) {
       var locations = [
         {
@@ -49,5 +53,33 @@
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+
+    vm.authenticate = function (provider) {
+      $auth.authenticate(provider)
+        .then(function (response) {
+          $log.log($auth.isAuthenticated())
+        })
+        .catch(function (response) {
+          // Something went wrong.
+        });
+    };
+    vm.LogIn = function () {
+      localStorageService.set('user_name', 'Alex');
+      vm.is_login = true;
+      vm.user_name = 'Alex';
+      dataService.user_name = vm.user_name;
+      window.user_name = vm.user_name
+
+
+    };
+    vm.logOut = function () {
+      localStorageService.remove('user_name');
+      vm.is_login = false;
+      vm.user_name = false;
+      dataService.user_name = vm.user_name;
+      window.user_name = vm.user_name
+
+    };
+    console.log(vm)
   }
 })();

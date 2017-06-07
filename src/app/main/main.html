@@ -3,42 +3,87 @@
   <div ng-class="{'col-md-5 i': main.single_post, 'col-md-4 i': !main.single_post}">
     <!-- left-info -->
     <div class="left-info">
-      <acme-navbar></acme-navbar>
+      <nav>
+        <div id="search">
+          <form class="search-form">
+            <input type="search" ng-model="search" value="" placeholder="Search..." class="search-input">
+            <button type="submit" class="search-button">
+              <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+        <div id="filters">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+              Фільтри
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Харчування</a></li>
+              <li><a href="#">Цікавинки</a></li>
+              <li><a href="#">Фонтани</a></li>
+              <li><a href="#">Пам'ятники</a></li>
+            </ul>
+          </div>
+          <div class="dropdown" ng-if="main.user_name" style="top: -31px; right: -110px">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+              {{main.user_name}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><a ng-click="main.logOut()" href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- login -->
+        <div id="login">
+          <a href="#" data-toggle="modal" data-target="#login-modal" ng-if="!main.user_name">Login</a>
+          <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+               aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+              <div class="loginmodal-container">
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="sign-in">
+                        <h3>sign-in</h3>
+                        <input type="text" name="user" placeholder="Email address">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" data-dismiss="modal" name="login" ng-click="main.LogIn()"
+                               class="login loginmodal-submit" value="sign-in">
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="col-md-6">
+                      <div class="sign-up">
+                        <h3>sign-up</h3>
+                        <input type="text" name="user" placeholder="First name">
+                        <input type="text" name="user" placeholder="Last name">
+                        <input type="text" name="user" placeholder="Email address">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" data-dismiss="modal" data-toggle="close" name="login"
+                               class="login-sign-up loginmodal-submit" value="sign-up">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- login -->
+      </nav>
+
       <div id="content" ng-if="!main.single_post">
         <h1>Цікаво відвідати</h1>
         <div class="item">
-          <div class="item1 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
+          <div class="item2 item-b" ng-click="main.toSinglePost()" ng-repeat="item in main.data.markers | filter:search">
+            <img ng-src="{{item.img}}" alt="">
+            <p>{{item.title}}</p>
           </div>
-          <div class="item2 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
-          <div class="item3 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
-          <div class="item4 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
-          <div class="item5 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
-          <div class="item6 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
-          <div class="item7 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
-          <div class="item8 item-b">
-            <img src="https://dummyimage.com/200x150/a391a3/fff" alt="">
-            <p>some text</p>
-          </div>
+
         </div>
       </div>
     </div>
@@ -51,5 +96,4 @@
     <div id="home-map"></div>
   </div>
   <!-- col-md-8 -->
-
 </div>

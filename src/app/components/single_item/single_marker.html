@@ -8,17 +8,9 @@
   </div>
   <div class="interesting">
     <div class="row">
-      <div class="col-md-4 content2-item">
-        <img src="https://dummyimage.com/400x300/a391a3/fff" alt=""><br>
-        <a href="#">Храм Ольги та Єлизавети</a>
-      </div>
-      <div class="col-md-4 content2-item">
-        <img src="https://dummyimage.com/400x300/a391a3/fff" alt=""><br>
-        <a href="#">Храм Ольги та Єлизавети</a>
-      </div>
-      <div class="col-md-4 content2-item">
-        <img src="https://dummyimage.com/400x300/a391a3/fff" alt=""><br>
-        <a href="#">Храм Ольги та Єлизавети</a>
+      <div class="col-md-4 content2-item" ng-repeat="item in sm.data.marker.propositions">
+        <img ng-src="{{item.img}}" alt=""><br>
+        <a href="#">{{item.title}}</a>
       </div>
     </div>
   </div>
@@ -43,8 +35,8 @@
     </div>
   </div>
 </div>
-<section id="comments" ng-if="!sm.user_name">
-  <div class="name-user">{{sm.user_name}}Alex</div>
+<section id="comments" ng-if="!window.user_name">
+  <div class="name-user">{{window.user_name}}Alex</div>
   <div class="part">
     <div class="stars rate" data-percent="50">
       <a href="?1" title="awful">★</a>
