@@ -25,8 +25,18 @@
     var map = Map.mapInitialize('home-map');
 
     userLocation.getUserLocation().then(function (data) {
-      map.setCenter(new google.maps.LatLng(data.coords.latitude, data.coords.longitude));
-      map.setZoom(15)
+      var user_loc = new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
+      map.setCenter(user_loc);
+      map.setZoom(15);
+
+      var markerOptions = {
+        position: user_loc,
+        map: map,
+        title: "Your location",
+        icon: 'assets/images/marker.png'
+      };
+
+      new google.maps.Marker(markerOptions);
     });
     vm.data = dummyData;
     if (!vm.single_post) {
