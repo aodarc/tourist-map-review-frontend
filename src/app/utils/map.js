@@ -14,6 +14,7 @@
 
     function setMarkers(map, locations) {
       var marker, i;
+      var markers = [];
       for (i = 0; i < locations.length; i++) {
         var title = locations[i].title;
         var img = locations[i].img;
@@ -29,6 +30,7 @@
         };
 
         marker = new google.maps.Marker(markerOptions);
+        markers.push(marker);
         map.setCenter(marker.getPosition());
 
         var windowContent = '<div class="marker-info media" style="width: 300px">' +
@@ -47,6 +49,7 @@
           };
         })(marker, windowContent, infowindow));
       }
+      return markers
     }
 
 

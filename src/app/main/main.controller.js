@@ -15,6 +15,10 @@
 
     vm.toSinglePost = function () {
       vm.single_post = true;
+      for (var i = 0; i < vm.markers.length; i++) {
+        vm.markers[i].setMap(null);
+      }
+      $log.log(vm.markers);
     };
 
     //Google Map
@@ -26,22 +30,7 @@
     });
     vm.data = dummyData;
     if (!vm.single_post) {
-      var locations = [
-        {
-          title: 'title1',
-          img: 'assets/images/map.png',
-          location: [49.836162, 24.011409]
-        },
-        {
-          title: 'title3',
-          img: 'assets/images/map.png',
-          location: [49.835580, 24.014092]
-        }, {
-          title: 'title3',
-          img: 'assets/images/map.png',
-          location: [49.835415, 24.006442]
-        }];
-      Map.setMarkers(map, locations);
+      vm.markers = Map.setMarkers(map, dummyData.markers);
       Map.map = map;
     }
     $http({
